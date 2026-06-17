@@ -1,0 +1,27 @@
+1. pertama saya import library kemudian import dataset
+
+2. lalu menghapus duplikat pada data, dan terdapat 151 data duplikat yg berhasil dihapus
+
+3. kemudian dilakukan tahap cleansing data, yg dimana pada tahap ini saya melakukan penghapusan karakter khusus seperti mention (@), hashtag (#), tautan HTML, menghapus angka, dan emoji. Namun, terdapat pengecualian pada symbol dot (.), comma (,), tanda seru (!), dan tanda tanya (?). Simbol ini tidak dihapus agar tidak menghilangkan konteks dari kalimat saat sentiment analysis.
+
+4. Kemudian stopword removal dan juga normalisasi. tahap ini dilakukan berdasarkan dictionary yg telah saya buat.
+
+5. drop empty row saya lakukan untuk data yg awalnya hanya berisi emoji kemudian pada tahap cleansing datanya menjadi kosong karena emoji dihapusnya emoji pada saat tahap cleansing.
+
+6. Kemudian saya lakukan segmentasi teks untuk memecah teks menjadi 2 kalimat berdasarkan konjungsi yang telah saya daftarkan. Jika pada kalimat terdapat lebih dari 1 konjungsi, maka pemecahan dilakukan berdasarkan konjungsi pertama yg match dengan konjungsi yg saya daftarkan untuk mensegmentasi kalimat.
+
+7. Akurasi dari proses segmentasi ini sebesar 100%, dan data yang memiliki konjungsi atau tersegmentasi sebanyak 293 data dari 1670 data.
+
+8. Setelah itu saya lakukan tokenisasi menggunakan library nltk.
+
+9. Kemudian saya lakukan stemming menggunakan library sastrawi
+
+10. lalu saya split datanya menjadi data train dan data test. Dari keseluruhan data, saya hanya mengambil data yang tidak tersegmentasi saja untuk dijadikan data train. Dan data test berisi 100% atau keseluruhan dari data.
+
+11. setelah data split, saya melakukan perhitungan TF-IDF dan juga Multi Aspect Based menggunakan cosine similarity. Untuk perhitungan TF-IDF dan cosine similarity saya menggunakan library sklearn. Pada TF-IDF saya menggunakan ngram(1,2) karena bigram dapat membantu menangkap konteks yang tidak cukup jelas jika katanya dipisah. kemudian saya tetapkan beberapa threshold, aspek pertama sebesar 0.3, aspek kedua sebesar 0.4, dan aspek "lainnya" sebesar 0.18. Pada awal dari tahap perhitungan cosine similarity, saya lakukan pengecekan apakah data tersegmentasi atau tidak. Jika data tidak tersegmentasi (text2 kosong) maka akan diperlakukan penggolongan satu aspect saja, jika data tersegmentasi (text2 terisi) maka akan diperlakukan penggolongan 2 aspek.
+
+12. Akurasi dari Multi Aspect Based ini sebesar 89.4%, F1 score 0.93, 177 data yang salah prediksi, dan 1493 data diprediksi dengan benar.
+
+13. Terakhir adalah tahap sentiment analysis menggunakan rule based. Pada tahap ini saya menggunakan teks hasil normalisasi, bukan teks hasil stemming agar makna kata domain tidak rusak oleh stemming. disini saya menggunakan 12 rule. Dan ada 2 rule yg telah di cover oleh proses preprocessing yaitu hapus semua simbol kecuali dot (.), comma (,), tanda seru (?), dan tanda tanya (?). serta rule dot dan koma parameter pemisah kalimat. Untuk rule sisanya saya menyimpannya didalam file terpisah, sehingga pada file ini saya hanya perlu memanggilnya saja. ini adalah file sentiment.py yg berisi semua function dari rulenya.
+
+14. Akurasi dari sentiment analysis ini sebesar 80.24%, F1 score 0.8, 330 data yang salah prediksi, dan 1340 data yang diprediksi dengan benar.

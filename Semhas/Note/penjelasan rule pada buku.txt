@@ -1,0 +1,100 @@
+Sistem analisis sentimen yang akan dikembangkan dalam penelitian ini menggunakan pendekatan rule-based. Dalam metode ini, peneliti menetapkan sejumlah aturan untuk menganalisis kombinasi kata berdasarkan jenis katanya di dalam konten media sosial. Setiap kata dalam komentar akan diperiksa jenis katanya (part-of-speech) untuk melihat apakah ada rangkaian kata yang cocok dengan aturan yang telah dibuat. Jika ditemukan rangkaian yang sesuai, sistem akan menggabungkan dan menghitung nilai sentimennya berdasarkan aturan tersebut.
+Setelah semua rangkaian kata yang cocok diproses, sistem kemudian akan menjumlahkan nilai sentimen dari seluruh kata yang ada dalam konten. Hasil akhir dari penjumlahan ini akan menentukan sentimen komentar tersebut. Jika nilainya lebih dari nol, maka sentimennya dianggap positif; jika nol berarti netral; dan jika kurang dari nol maka dikategorikan sebagai sentimen negatif. Berikut adalah aturan part-of-speech pada sentiment analysis pada penelitian ini:
+A.	Adjektif Tunggal
+Jika dalam suatu kalimat terdapat kata sifat (adjektif) tanpa adanya kata kerja (verb) atau kata depan (preposisi), maka nilai sentimen kalimat tersebut akan mengikuti nilai dari kata sifat yang muncul. Misalnya pada kalimat:
+“saya kecewa”
+Kata “saya” tidak termasuk dalam aturan karena merupakan kata benda (nomina), sehingga tidak diperhitungkan. Yang akan dianalisis adalah kata “kecewa”, karena sesuai dengan aturan sebagai kata sifat. Kata “kecewa” memiliki nilai sentimen -1, sehingga nilai ini akan menjadi representasi dari sentimen keseluruhan kalimat.
+B.	Verb Tunggal
+Jika sebuah kalimat mengandung kata kerja (verba) tanpa disertai kata sifat (adjektif) atau kata depan (preposisi), maka nilai sentimen kalimat tersebut akan mengikuti nilai dari kata kerja tersebut. Sebagai contoh, dalam kalimat
+“pelayanan PDAM merugikan saya”
+Kata “merugikan” adalah verba yang memiliki nilai sentimen -1. Sementara itu, kata “pelayanan” dan “PDAM” tidak tercantum dalam kamus sentimen, dan kata “saya” adalah nomina yang juga tidak termasuk dalam aturan. Oleh karena itu, sentimen kalimat ini ditentukan oleh kata “merugikan”, sehingga nilai sentimennya adalah -1 atau bersifat negatif.
+C.	Preposisi + Adjektif
+Jika sebuah kalimat memiliki kata sifat (adjektif) yang muncul setelah kata depan (preposisi), maka nilai sentimen kalimat tersebut dihitung menggunakan aturan AND operator. Tabel 3.1 menunjukkan kombinasi nilai antara preposisi dan adjektif beserta hasil akhirnya.
+Tabel 3. 1. AND Operator
+Preporisisi	Adjektif	Nilai
+1	1	1
+1	-1	-1
+-1	1	-1
+-1	-1	1
+Sebagai contoh, dalam kalimat “penanganan aduan saya kenapa sangat lama ya min?”, kata “sangat” merupakan preposisi dengan nilai sentimen 1, sedangkan kata “lama” adalah adjektif dengan nilai sentimen -1. Berdasarkan aturan dalam tabel AND operator, kombinasi preposisi bernilai 1 dan adjektif bernilai -1 akan menghasilkan nilai sentimen -1. Maka, kalimat tersebut dikategorikan sebagai sentimen negatif.
+D.	Preposisi + Verb
+Jika dalam sebuah kalimat terdapat kata kerja (verba) yang muncul setelah kata depan (preposisi), maka nilai sentimen kalimat tersebut dihitung menggunakan aturan AND operator. Sebagai contoh
+“air di rumah saya sudah mati 3 hari, kenapa PDAM tidak menangani dengan cepat”
+Kata “tidak” berfungsi sebagai preposisi dengan nilai sentimen -1, sedangkan kata “menangani” merupakan verba dengan nilai sentimen 1 (berasal dari kata dasar “tangani”). Berdasarkan aturan pada tabel AND operator, kombinasi nilai -1 (preposisi) dan 1 (verba) menghasilkan nilai sentimen -1. Oleh karena itu, kalimat ini dikategorikan sebagai sentimen negatif.
+E.	Verb + Adjektif
+Aturan NAND operator digunakan untuk menentukan nilai sentimen dari kalimat yang mengandung kata kerja (verb) yang diikuti oleh kata sifat (adjektif). Cara perhitungannya dijelaskan dalam Tabel 3.2, yang menunjukkan kombinasi nilai dari kedua jenis kata tersebut dan hasil akhirnya.
+ 
+Tabel 3. 2. NAND Operator
+Verb	Adjektif	Nilai
+1	1	1
+1	-1	-1
+-1	1	-1
+-1	-1	-1
+Sebagai contoh, pada kalimat:
+“saya rasa kinerja PDAM bagus dan tanggap”
+kata “kinerja” merupakan verba dengan nilai sentimen 1, dan kata “bagus” adalah adjektif juga dengan nilai sentimen 1. Kombinasi ini sesuai dengan aturan dalam tabel NAND operator, sehingga menghasilkan nilai sentimen 1. Selain itu, ada kata “tanggap” yang juga merupakan adjektif dengan nilai sentimen 1, dan termasuk dalam aturan adjektif tunggal. Karena terdapat dua aturan yang terpenuhi dalam kalimat ini, nilainya dijumlahkan: 1 (dari kombinasi verb-adjektif) + 1 (dari adjektif tunggal) = 2. Karena hasilnya lebih dari nol, maka sentimen kalimat ini dikategorikan sebagai positif.
+F.	Preposisi + Verb + Adjektif
+Dalam beberapa kasus, sebuah kalimat bisa mengandung preposisi, verba, dan adjektif secara bersamaan. Untuk menentukan nilai sentimen dari kalimat seperti ini, sistem akan melakukan dua tahap perhitungan. Pertama, nilai dari kata kerja (verba) dan kata sifat (adjektif) dihitung menggunakan NAND operator, seperti yang dijelaskan pada Tabel 3.2. Kedua, hasil dari perhitungan tersebut kemudian digabungkan dengan nilai preposisi menggunakan AND operator, sesuai dengan Tabel 3.1. Sebagai contoh, dalam kalimat 
+“PDAM tidak paham dengan baik, apa sebenarnya kebutuhan pelanggan”
+Kata “tidak” merupakan preposisi dengan nilai sentimen -1, “paham” adalah verba dengan nilai 1, dan “baik” adalah adjektif dengan nilai 1. Karena ketiganya termasuk dalam aturan kombinasi, maka langkah pertama adalah menghitung “paham” dan “baik” dengan NAND operator, yaitu 1 NAND 1 menghasilkan nilai 1. Selanjutnya, nilai dari preposisi “tidak” (-1) dihitung bersama hasil sebelumnya (1) dengan AND operator, yaitu -1 AND 1 = -1. Maka, sentimen dari kalimat ini secara keseluruhan adalah negatif dengan nilai -1.
+G.	Semua simbol pada komentar dihapus kecuali dot (.), comma (,), tanda seru (!), dan tanda tanya (?)
+H.	Dot and comma parameter untuk memisahkan kalimat
+Setiap komentar atau tanggapan dari pengguna biasanya terdiri dari beberapa kalimat yang dipisahkan oleh tanda baca seperti koma atau titik. Misalnya, pada kalimat
+“pipa bocor, apakah tidak segera ditangani?”
+Komentar ini akan dipisah menjadi dua kalimat terpisah. Kalimat pertama, “pipa bocor”, memiliki nilai sentimen -1. Kalimat kedua, setelah melalui proses pemrosesan menjadi “tidak segera ditangani”, juga memiliki nilai sentimen -1. Untuk menentukan sentimen dari seluruh komentar, nilai sentimen dari masing-masing kalimat dijumlahkan. Dalam contoh ini, -1 ditambah -1 menghasilkan -2, yang berarti komentar tersebut secara keseluruhan bersentimen negatif.
+I.	Frase Kata terdiri dari dua kata yang memiliki satu makna tidak dapat dipisah
+Dalam penelitian ini, frasa didefinisikan sebagai gabungan dua kata yang membentuk satu makna utuh dan sering ditemukan dalam kalimat berbahasa Indonesia. Contohnya antara lain "terima kasih", "air mata", dan "minta tolong". Meskipun terdiri dari dua kata, frasa seperti ini dianggap satu kesatuan makna dan hanya diberi satu nilai sentimen.
+J.	Nilai sentiment “terima kasih” atau pujian bergantung pada posisi letak kata tersebut dalam kalimat.
+Jika frasa “terima kasih” muncul di awal kalimat, maka frasa tersebut diberi nilai sentimen positif sebesar 1. Namun, jika letaknya berada di tengah atau di akhir kalimat, maka nilainya dianggap netral atau 0. Sebagai contoh, dalam kalimat “terima kasih sudah menangani dengan baik”, karena frasa “terima kasih” berada di awal, maka nilai sentimennya adalah 1.
+K.	Penggunaan kata tidak sesuai kamus Bahasa Indonesia akan diabaikan.
+Dalam teks percakapan, sering kali ditemukan kata-kata yang ditulis dengan bahasa tidak formal, ejaan yang salah, atau bahkan menggunakan bahasa Inggris. Kata-kata seperti ini sebenarnya bisa diperbaiki saat proses preprocessing dalam text mining. Namun, jika setelah diperbaiki kata tersebut masih tidak cocok atau tidak ditemukan dalam kamus bahasa Indonesia, maka kata tersebut akan diabaikan dan tidak digunakan dalam analisis.
+L.	Konjungsi Tunggal
+Metode conjunction rule memiliki sejumlah aturan khusus untuk menangani kalimat yang mengandung kata hubung (konjungsi), guna menentukan nilai sentimennya. Namun sebelum masuk ke aturan konjungsi, kalimat atau query akan terlebih dahulu diproses menggunakan beberapa aturan yang telah dijelaskan sebelumnya.
+Konjungsi sendiri terbagi menjadi dua jenis, yaitu konjungsi koordinatif dan konjungsi subordinatif. Mengacu pada Kamus Besar Bahasa Indonesia (KBBI), konjungsi koordinatif adalah kata hubung yang menggabungkan dua kata atau klausa yang memiliki kedudukan setara. Sementara itu, konjungsi subordinatif berfungsi menghubungkan dua bagian kalimat yang tidak setara, di mana salah satunya bergantung pada yang lain.
+Untuk aturan konjungsi, terdapat beberapa aturan didalamnya, seperti berikut:
+1.	Konjungsi Koordinatif Bertentangan
+Sebuah kalimat pengaduan dapat tersusun dari beberapa klausa yang dipisahkan dengan (.), (,), (!) dan (?). Konjungsi koordinatif bertentangan digunakan untuk menghubungkan dua klausa yang memiliki makna bertentangan, seperti: tetapi, akan tetapi, namun, padahal dan sedangkan. Aturan yang digunakan untuk konjungsi koordinatif bertentangan sebagai berikut :
+if (konjungsi =  tetapi/tapi/akan tetapi AND konj_pos = tengah)
+if(klausa 1 == -1 or klausa 2 == -1)
+	sentiment = -1
+Else if (klausa 1 == 1 and klausa 2 == 1)
+	sentiment = 1
+else 0
+Struktur kalimat yang dimaksud dalam aturan ini adalah kalimat yang terdiri dari beberapa bagian atau klausa yang dipisahkan oleh koma. Klausa kedua adalah bagian yang mengandung kata hubung (konjungsi), sementara klausa pertama adalah bagian kalimat yang terletak sebelum klausa tersebut.
+Sebagai contoh, dalam kalimat “Air di rumah tersebut tidak keluar sama sekali, tetapi tetangga kanan-kiri keluar air semua, mohon bantuannya”, terdapat tiga klausa. Klausa 1 adalah “Air di rumah tersebut tidak keluar sama sekali”, klausa 2 adalah “tetapi tetangga kanan-kiri keluar air semua”, dan klausa 3 adalah “mohon bantuannya”. Klausa pertama memiliki nilai sentimen -1 karena mengandung kombinasi preposisi dan verba (“tidak keluar”), sedangkan klausa kedua memiliki nilai +1 karena mengandung verba tunggal (“keluar”) dan terdapat kata hubung “tetapi”. Karena kalimat ini memenuhi aturan konjungsi subordinatif dengan makna pertentangan, dan salah satu klausa bernilai negatif, maka sentimen keseluruhan kalimat dianggap negatif dengan nilai -1.
+2.	Konjungsi Subordinatif yang menyatakan Hubungan Makna Harapan
+Konjungsi subordinatif jenis ini terdiri dari empat kata, yaitu “agar”, “agar supaya”, “biar”, dan “supaya” [(14)]. Ada empat jenis struktur kalimat yang termasuk dalam aturan ini, yaitu kalimat permintaan, kalimat harapan, kalimat kondisi, dan kalimat yang mengandung verba. Kalimat permintaan ditandai dengan adanya kata-kata seperti “tolong” atau “mohon”. Kalimat harapan adalah kalimat yang mengandung salah satu dari kata konjungsi tadi. Sementara itu, kalimat kondisi merupakan bagian kalimat yang muncul sebelum kalimat harapan atau permintaan. Jika dalam kalimat tersebut terdapat kata kerja (verba), maka kalimat itu juga dikategorikan sebagai kalimat verba.
+●	Rule Pertama
+if kalimat = [kalimat kondisi, supaya/agar/biar, kalimat harapan] or [kalimat kondisi, kalimat permintaan, supaya/agar/biar, kalimat harapan]
+then nilai sentiment = sent_kalimat kondisi
+Pada aturan pertama ini, kata hubung subordinatif seperti “supaya”, “agar”, atau “biar” muncul di tengah kalimat. Jika struktur kalimat sesuai dengan pola tersebut, maka nilai sentimen dari seluruh kalimat ditentukan oleh sentimen dari bagian kalimat kondisi.
+Sebagai contoh pertama:
+“sudah 10 hari airnya masih keruh, mohon secepatnya diperbaiki, supaya air kembali bersih.”
+Kalimat ini terdiri dari tiga bagian, yaitu kalimat kondisi: “sudah 10 hari airnya masih keruh” yang bernilai -1 karena mengandung kata “keruh” (adjektif negatif), kalimat permintaan: “mohon secepatnya diperbaiki”, dan kalimat harapan: “supaya air kembali bersih” yang bernilai 1 karena mengandung kata “bersih” (adjektif positif). Karena kalimat ini sesuai dengan aturan pertama, maka nilai sentimen utamanya diambil dari kalimat kondisi, yaitu -1 (negatif).
+Contoh kedua:
+“Kalo beberapa hari ke depan tidak ada respon dari PDAM maka saya akan memasang pompa air supaya air bisa mengalir ke kamar mandi.”
+Kalimat ini memiliki dua bagian, yaitu kalimat kondisi: “Kalo beberapa hari ke depan tidak ada respon dari PDAM maka saya akan memasang pompa air”, yang bernilai -1 karena mengandung frasa “tidak ada respon” (frasa negatif), dan kalimat harapan: “supaya air bisa mengalir ke kamar mandi”, yang bernilai 1 karena mengandung kombinasi verba dan adjektif (“bisa mengalir”). Karena struktur kalimat sesuai dengan aturan pertama, maka nilai sentimen diambil dari kalimat kondisi, yaitu -1 (negatif).
+●	Rule Kedua
+if kalimat = [verba, supaya/agar/biar k.harapan] or [supaya/agar/biar k.harapan]
+if (sent_k. harapan == -1) then sentiment = 1
+if (sent_k. harapan == 1) then sentiment = -1
+else sentiment = 0
+Contoh pada aturan kedua ini menjelaskan struktur kalimat yang mengandung kata kerja (verba) dan diikuti oleh konjungsi harapan seperti “supaya”, “agar”, atau “biar”, yang kemudian disambung dengan kalimat harapan.
+Sebagai ilustrasi:
+“Air tidak bisa keluar sama sekali. Pakai pompa air pun tidak bisa keluar. Hanya untung-untungan saja. Apakah warga harus bangun pagi-pagi buta supaya bisa mendapatkan air???????????”
+Mengandung verba “bangun” yang kemudian diikuti dengan frasa tujuan “supaya bisa mendapatkan air”. Kalimat harapan tersebut memiliki nilai sentimen -1 karena memenuhi aturan kombinasi verba dan adjektif (“bisa mendapatkan”). Sesuai dengan rule kedua untuk konjungsi subordinatif yang menunjukkan hubungan makna harapan, nilai sentimen dari kalimat ini diambil dari kalimat harapannya, sehingga keseluruhan kalimat dikategorikan sebagai negatif dengan nilai -1.
+3.	Konjungsi Subordinatif yang Menyatakan Hubungan Makna Syarat
+Konjungsi jenis ini terdiri dari enam kata, yaitu: apabila, bila, bilamana, jika, jikalau, dan kalau. Struktur kalimat yang mengikuti aturan ini terbagi menjadi tiga jenis, yaitu kalimat syarat, kalimat kondisi, dan kalimat permintaan.
+Kalimat syarat adalah bagian kalimat yang mengandung konjungsi subordinatif yang menyatakan suatu kondisi atau syarat. Kalimat kondisi bisa berada sebelum kalimat syarat, atau bisa juga muncul setelahnya dengan ditandai oleh kata “maka”. Sementara itu, kalimat permintaan adalah kalimat yang mengandung kata-kata seperti “tolong” atau “mohon”.
+●	Rule Pertama
+if kalimat = [jika k.syarat, maka k.kondisi] or jika k.syarat]
+Sentiment = sent_k.syarat
+Contoh kalimat:
+“jika keluhan kami tidak diperhatikan, maka jangan ada kotak keluhan”
+Bagian “jika keluhan kami tidak diperhatikan” merupakan kalimat syarat dengan nilai sentimen -1 karena mengandung unsur verba negatif (sesuai dengan aturan verba tunggal untuk “keluhan”). Sedangkan bagian “maka jangan ada kotak keluhan” berfungsi sebagai kalimat kondisi. Karena kalimat ini mengikuti struktur aturan konjungsi syarat, maka nilai sentimen keseluruhan ditentukan berdasarkan nilai dari kalimat syarat, yaitu -1 atau negatif.
+•	Rule Kedua
+If kalimat = [k.kondisi, jika k.syarat] or [k.kondisi, k.permintaan, jika k.syarat]
+Sentiment = sent_k.kondisi
+Contoh kalimat:
+“Seminggu terakhir ini dirumah saya tidak ada air yang masuk. Jika air diputar yang keluar hanya angin, tetapi tagihan terus berjalan, mohon jawabannya????”
+Susunan kalimat diatas memiliki kalimat kondisi “Seminggu terakhir ini dirumah saya tidak ada air masuk” bernilai -1 (memenuhi rule preposisi + verba [tidak + ada] -1, dan verba tunggal [air] 0) dan kalimat syarat “jika air diputar yang keluar hanya angin” dengan kalimat syarat memiliki nilai sentimen -1 sehingga nilai sentimen dari kalimat tersebut diambil dari kalimat syarat yakni -1 (negatif). 

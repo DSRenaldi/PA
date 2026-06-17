@@ -1,0 +1,71 @@
+﻿stemmed_sentence_1,stemmed_sentence_2,true_aspects_set,predicted_aspects_set,similarity_scores
+pdam tarif golong ubah padahal tetangga tarif golong nya ada tapi kos,sedang rumah pribadi ga salur air tetangga rumah ga malah ada loh pintu tulis keluarga miskin perintah gara gara tarif pdam banyak bulan padahal sampai irit pakai air nya,{'Harga'},"{'Air Tidak Mengalir', 'Harga'}",1.0000000000000002
+hubung biar ada jelas sudah bayar biaya ganti stop keran tunggu,tapi sampai belum ada tugas datang cerah nya admin,{'Pemasangan'},"{'Pelayanan', 'Pemasangan'}",1.0000000000000002
+sudah aju ganti meter karena meter rumah tinggal macet rusak tanggal januari sampai sekarang belum ada tindak adu pm,lalu tagih januari meter tapi tagih februari meter awal meter padahal sudah lapor meter macet rusak tapi catat meter ubah ubah,"{'Meteran (Macet/Bermasalah)', 'Harga'}","{'Meteran (Macet/Bermasalah)', 'Pelayanan'}",1.0000000000000002
+halo kakak sudah komplain sini sudah lapor meter rusak tanggal januari tugas lapang datang x cek meter,tapi sampai sekarang belum ada ganti,"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}","{'Meteran (Macet/Bermasalah)', 'Pemasangan'}",1.0
+kakak warga dukuh kupang pdam alir kecil padahal ga semenjak kerja gorong kampus parah air alir nya,tapi tagih tetap banyak,{'Air Tidak Mengalir'},"{'Harga', 'Air Tidak Mengalir'}",1.0
+meter sudah ganti,tapi air macet karena belum bayar belum bayar karena ada lonjak tagih tidak wajar meter rusak masak sampai x tagih mohon tindak,"{'Meteran (Macet/Bermasalah)', 'Harga'}",{'Meteran (Macet/Bermasalah)'},1.0000000000000002
+admin adu tidak ada respon tagih tiba tiba bengkak,padahal tahun ga air sampai habis ratus,{'Pelayanan'},"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}",1.0000000000000002
+admin air rumah bayar naik drastis banget padahal rumah keluar air malam,karena isi rumah kena nya an tidak sampai semalem bayar kena hampir ada naik harga ada tidak ada informasi,{'Harga'},"{'Lainnya', 'Harga'}",1.0000000000000002
+siang admin ganti meter air,tapi sambung ada bocor kena biaya tetangga bocor bayar ini di perum pondok maritim balas klumprik,"{'Meteran (Macet/Bermasalah)', 'Harga'}","{'Meteran (Macet/Bermasalah)', 'Lainnya'}",1.0000000000000002
+ganti meter,tapi tagih lebih banyak,"{'Meteran (Macet/Bermasalah)', 'Harga'}",{'Harga'},1.0
+sudah kirim surat komplain manajer arah spv agus kata kerja di hubung kali kali feedback sampai sekarang ga hubung,tapi lapang pdam cabut meter telepon call center pdam surabaya so,"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}",{'Pelayanan'},1.0000000000000002
+admin alir air daerah kejawan mati total lanjut kira kira dampak remaja besar,padahal kejawan tidak ada list,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+rumah sudah tagih lebih padahal hun hari kerja semua keran mati,tapi meter putar kencang sih,{'Harga'},"{'Meteran (Macet/Bermasalah)', 'Harga'}",1.0000000000000002
+admin stop keran rumah sudah rusak,karena usia sudah atas ganti,{'Meteran (Macet/Bermasalah)'},"{'Meteran (Macet/Bermasalah)', 'Lainnya'}",1.0000000000000002
+daerah tegalsari air pdam ga layak pakai air sungai sudah ini sekarang mati,,"{'Air Kotor/Bau', 'Air Tidak Mengalir'}",{'Air Kotor/Bau'},1.0
+stop keran pdam rusak usia sudah lebih meter pdam putar pakai rugi whatsapp pdam surabaya baik stop keran kena biaya rp bayar,,"{'Meteran (Macet/Bermasalah)', 'Harga'}",{'Meteran (Macet/Bermasalah)'},1.0000000000000002
+wilayah tanjung perak,sedang ada baik,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+lurah simolawang air pdam mati hidup malam aja sudah adu,tapi tetap aja ga ubah bayar naik,"{'Harga', 'Air Tidak Mengalir'}","{'Lainnya', 'Air Tidak Mengalir'}",1.0
+sudah bayar ganti meter air hilang,tapi tidak pasang alas karena stop keran nya kosong dan kira sampai kapan tapi tidak tahu suruh beli sendiri sudah bayar denda meter hilang mahal suruh beli stop keran sendiri gimana layan,"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}",{'Meteran (Macet/Bermasalah)'},1.0000000000000002
+lapor by whatsapp pdam ga ada kakak,padahal sudah daftar kurang syarat pasang,"{'Pemasangan', 'Pelayanan'}",{'Pelayanan'},1.0000000000000002
+agustus sampai sekarang belum ada tanggap pasang,padahal sudah ganti admin,{'Pemasangan'},"{'Meteran (Macet/Bermasalah)', 'Pemasangan'}",0.9999999999999999
+belum survey admin,padahal sudah aju lama,"{'Pemasangan', 'Pelayanan'}","{'Air Tidak Mengalir', 'Pelayanan'}",1.0
+air pdam surabaya pusat punya keruh air sumur padahal bayar mahal,tapi air keruh bau,"{'Air Kotor/Bau', 'Harga'}",{'Air Kotor/Bau'},1.0000000000000002
+air tidak hidup harus bayar,karena lapor kali tidak ada teknisi datang ke rumah bagimana,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Air Kotor/Bau', 'Air Tidak Mengalir'}",1.0
+admin adu ganti meter hingga kerja,tapi belum ada tanggap,"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}","{'Meteran (Macet/Bermasalah)', 'Pemasangan'}",1.0
+halo admin pesan sudah tanggap,tapi ga ada action pdam sudah sampai sekarang,{'Pelayanan'},"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}",1.0
+sulit hubung pdam,padahal air rumah mati sore,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Harga', 'Air Tidak Mengalir'}",1.0000000000000002
+daerah mulyorejo jaman ada gali sampai gali selesai tetap air sulit,tapi pas raya air nya lancar jaya,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+laku rencana pikir matang alir air wilayah lurah airlangga alir lancar diskriminasi,karena dampak kos wilayah,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+siang bulak rukem timur air daerah debit kecil cenderung tidak keluar sudah lapor sudah datang tapi tetap tidak lancar kata ada gali,lalu memang ada keluar selanjunya kecil air keruh,{'Air Tidak Mengalir'},"{'Air Kotor/Bau', 'Air Tidak Mengalir'}",1.0000000000000002
+pdam bayar bulan ada retribusi padahal kampung pakai retribusi adu online retribusi sudah tentu dlh harus retribusi kampung nak bukan angka kecil,tapi bayang rumah nak kampung ada rumah sudah,{'Harga'},"{'Meteran (Macet/Bermasalah)', 'Harga'}",1.0000000000000002
+aplikasi rumit keluh apa harus unggah rumah bukan masuk nomr langgan data sudah baca lagi pula keluh batas aneh dan berat admint tiktok tidak masuk akal kalah tunggak belum bayar dan admin tiktok tidak ada google website pdam lain,lalu angka admint tiktok darimana muncul nominal segitu,{'Pelayanan'},"{'Lainnya', 'Pelayanan'}",1.0000000000000002
+mohon informasi adu,karena kena penalti,{'Pelayanan'},"{'Lainnya', 'Pelayanan'}",1.0
+sosialisasi visi misi pdam apa coba cek target warga surabaya harap pdam nyala jam pompa air sampai lantai warga surabaya jangan sekarang rumah gunung anyar hidup pompa air setro utara tetap harus pakai pompa air,padahal camat tambaksari kawasan milik miskin paling bantu rumah di dahulu kapan pdam penuh target analisa bayar tolong hubung terima kasih,{'Pelayanan'},"{'Lainnya', 'Pelayanan'}",1.0
+admin sambikerep mati air,tapi ga ada pemberitahuan pagi masak sekolah kerja,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000002
+admin bangun rumah surabaya utara bukan kampung padat duduk pasang pdam bilang ga masuk rumah pdam nya masuk suruh bayar juta bantu,padahal kanan kit kakak ku sudah lama situ pakai pdam,{'Pemasangan'},"{'Lainnya', 'Pemasangan'}",1.0000000000000004
+gerak cepat atas keluh tagih lonjak,padahal pagi air pdam mati tidak keluar jam sampai siang hidup kecil debit jam mati sampa,{'Harga'},"{'Air Tidak Mengalir', 'Harga'}",1.0000000000000002
+area kapas madya admin mau cek bocor soal tagih pam banget pernah adu pdam,tapi suruh bongkar salur pipa,{'Kebocoran'},"{'Kebocoran', 'Lainnya'}",1.0000000000000002
+admin area kodam air nya mati,tetapi tidak ada informasi pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000002
+mohon bantu batal adu pdam,karena sudah atas,{'Pelayanan'},"{'Lainnya', 'Pelayanan'}",1.0000000000000002
+air mati ga ada pemberitahuan,,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+admin gaada pemberitahuan kodam mati total,,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+admin kodam mati admin air admin bisa bikin gebrak pemberitahuan,,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+air pulosari mati,tapi tidak ada pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+air mati masuk meter,tetapi tidak ada tindak pdam lapor cuman tugas lapor ada konfirmasi kerja jelas lapor tinjau tidak akurat kacau,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Kebocoran', 'Air Tidak Mengalir'}",1.0000000000000002
+halo sudah aju adu,karena air pdam mati whatsapp web pesan tanggap terima kasih,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+pdam mati jam,tapi tidak ada pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000002
+hidup air admin air mati,tapi pemberitahuan hambat aktivitas pagi,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Lainnya', 'Air Tidak Mengalir'}",1.0
+maaf daerah surabaya barat air kotor hidup tidak deras,tapi bayar mahal turun tarif air pdam,"{'Air Kotor/Bau', 'Harga'}",{'Air Kotor/Bau'},1.0
+air pdam murah,tapi keruh percuuma kak,"{'Air Kotor/Bau', 'Harga'}","{'Lainnya', 'Harga'}",1.0000000000000002
+ada giat kerja mati alir air pdam warga ada pemberitahuan warga siap dampak kebraon mati jam sampai belum mengalirpadahal pdam lebih profesional dalam layan masyarakat bukan maaf tidak budaya layan,,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+kolom komen estimasi jam selesai,tapi sampai jam set belum hidup air,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+pdam kebraon mati padahal sudah hidup,tapi sebentar,{'Air Tidak Mengalir'},"{'Meteran (Macet/Bermasalah)', 'Air Tidak Mengalir'}",1.0
+umum mati admin kali kali komplain,tapi tidak perhati saran customer kan ada baik ada rencana tidak buru,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+rumah dampak daerah jalan mastrip baik,akan sampai sore,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000004
+ada rencana padam pdam share instagram minimal langgan tampung air nya terima kasih,,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000002
+maaf sudah daftar sudah survey,tapi belum whatsapp pemberitahuan kantor bayar kontrak,{'Pelayanan'},"{'Lainnya', 'Pelayanan'}",1.0
+daerah sulit air air harus tampung air hujan,karena belum ada sambung pdam masuk rumah padahal kota bukan pelosok desa desa sudah lama sedih nya,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+aju selalu undur,tapi sampai sekarang belum jelas kendala apa juga tidak ada informasi sampai aplikasi cis sudah hapus,"{'Pelayanan', 'Pemasangan'}","{'Lainnya', 'Pemasangan'}",1.0
+karang wiyung maret tidak keluar,tapi tetangga kanan kiri air nya normal,{'Air Tidak Mengalir'},"{'Meteran (Macet/Bermasalah)', 'Air Tidak Mengalir'}",1.0
+mohon maaf bantu menindaklanjuti lapor air keruh daerah ngagel jaya selatan tanggal februari sudah lapor via whatsapp tanggal maret lapor via whatsapp mohon perhati kualitas air,karena guna butuh hari terima kasih,{'Air Kotor/Bau'},"{'Air Kotor/Bau', 'Lainnya'}",1.0000000000000002
+admin cek aku bayar tagih,tapi ga keluar tagih nyakatanya bayar periode tanggal sekarang tanggal ga keluar tagih telepon layan langgan suruh bayar tanggal bayar tagih,{'Harga'},"{'Lainnya', 'Harga'}",1.0
+tolak,karena surat pemberitahuan tidak ada proses ganti langgan informasi surat resmi ada datang ke rumah rawan tipu maling,{'Pelayanan'},"{'Lainnya', 'Pelayanan'}",0.530065262836322
+klu tinggi meter bayar tidak,karena letak ada bawah susah tugas klu cek meter,"{'Meteran (Macet/Bermasalah)', 'Harga'}","{'Pelayanan', 'Harga'}",1.0000000000000004
+sudah bulan lebih inspeksi belum ada tindak lanjutkarena meter air buram tidak putar,,"{'Meteran (Macet/Bermasalah)', 'Pelayanan'}",{'Pelayanan'},1.0
+ganti meter,,{'Meteran (Macet/Bermasalah)'},{'Harga'},1.0
+kakak tidak putar,karena kena air hujan perlu ganti,{'Meteran (Macet/Bermasalah)'},"{'Meteran (Macet/Bermasalah)', 'Lainnya'}",1.0000000000000002
+selamat malam admin permisi daerah pakis ada baik,karena air kotor di keluar memang ada baik lama karena sudah air kotor harus kuras bak mandi,{'Air Kotor/Bau'},"{'Air Kotor/Bau', 'Air Tidak Mengalir'}",1.0000000000000002
+malam belum baik pdam air perum ikip gunung mati pagi barusan keluar,tapi kecil,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+admin pdam mati tanggal gin call pdam surabaya ada tugas datang tapi tugas sikeras tekan harus pompa ga lalu tandon padahal kanan kiri ada gali pipa hitam sambung dalam,sedang belum call pdam tetap tugas yang sangkut tidak ada solusi bypas pompa tidak ada tugas bantu kasus,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Lainnya', 'Air Tidak Mengalir'}",1.0

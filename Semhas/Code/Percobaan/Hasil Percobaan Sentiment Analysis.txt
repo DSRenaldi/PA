@@ -1,0 +1,33 @@
+Distribusi True Sentiment:
+| True Sentiment   |   Jumlah |
+|:-----------------|---------:|
+| Negatif          |    11128 |
+| Netral           |     6568 |
+| Positif          |     2667 |
+
+Distribusi Prediksi Sentiment:
+| Predicted Sentiment   |   Jumlah |
+|:----------------------|---------:|
+| Negatif               |    10176 |
+| Netral                |     6910 |
+| Positif               |     3277 |
+
+F1 Score Tiap Sentiment:
+| Sentiment   |   Precision |   Recall |   F1_Score |   Jumlah_True |
+|:------------|------------:|---------:|-----------:|--------------:|
+| Negatif     |      0.8901 |   0.814  |     0.8504 |         11128 |
+| Netral      |      0.7745 |   0.8149 |     0.7942 |          6568 |
+| Positif     |      0.7345 |   0.9025 |     0.8099 |          2667 |
+
+Total Data               : 20363
+Prediksi Benar           : 16817
+Prediksi Salah           : 3546
+Total Akurasi            : 82.59%
+Error Rate               : 17.41%
+F1 Score                 : 0.8269
+
+Confusion Matrix:
+         Negatif  Netral  Positif
+Negatif     9058    1464      606
+Netral       952    5352      264
+Positif      166      94     2407

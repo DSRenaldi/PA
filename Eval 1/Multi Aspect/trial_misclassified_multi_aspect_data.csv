@@ -1,0 +1,200 @@
+﻿final_data,true_aspects_set,predicted_aspects_set,similarity_score
+naik komplain biasa an aduh serba bayar kan ga percaya perintah,{'Harga'},"{'Harga', 'Air Tidak Mengalir'}",1.0
+denda pdam lambat kalah pinjol parah,{'Harga'},"{'Harga', 'Lainnya'}",1.0
+si hubung layan adu hampir minggu tidak tindak,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+tenggumung wetan gang garuda mati tindak lanjut,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+tugas pdam rumah tidak guna seragam resmi pdam kata remaja meter lurah dukuh tanggal,{'Meteran (Macet/Bermasalah)'},"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}",1.0
+pdam naik selalu,{'Harga'},"{'Harga', 'Lainnya'}",1.0
+maaf air pdam daerah surabaya wiyung kotor satu minggu cek tandon stok air terima kasih,{'Air Kotor/Bau'},"{'Lainnya', 'Air Kotor/Bau'}",1.0000000000000002
+halo pakai m tagih selalu m kakak,{'Harga'},"{'Harga', 'Pelayanan'}",1.0000000000000002
+lapor pdam kasih nomor catat meter di telepon ga bisa woi tagih ku tidak meter cepat respon,"{'Harga', 'Pelayanan'}","{'Harga', 'Lainnya'}",1.0000000000000004
+aju surat berat tagih januari tidak tanggap tagih naik gara meter pdam rusak langgan bayar lebih tagih kelas usaha daerah tidak profesional gin,"{'Harga', 'Pelayanan'}","{'Harga', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+pdam ga sehat tagih raya selalu naik drastis tugas salah catat tulis gila tagih gila bicara sembarang rumah isi cuman tidak ada bocor tidak ada kolam renang air cuman pakai mandi saka cuci baju tagih mei gila,{'Harga'},"{'Harga', 'Lainnya'}",1.0
+alir air mojo tindak lanjut datang kantor,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+mohon tindak lanjut,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+hubung biar jelas bayar biaya ganti stop keran tunggu belum tugas cerah nya admin,"{'Pelayanan', 'Pemasangan'}","{'Pemasangan', 'Meteran (Macet/Bermasalah)'}",1.0
+pemberitahuan resmi memang atur kos kamar kena tarif a akal tugas kos hasil gitu terus ganti ake a kamar bukan kamar,"{'Harga', 'Pelayanan'}",{'Harga'},0.999999999999999
+halo kakak komplain sini lapor meter rusak tanggal januari tugas lapang x cek meter belum ganti,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}","{'Pemasangan', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+informasi admin adu langgan loh via aplikasi belum respon pesan tidak respon alih call center telepon whatsapp whatsapp tidak layan chat layan langgan,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+alhamdulillah sore tanggal rumah daerah rungkut tanggal harap ganti meter terima bukti ganti meter terima kasih,{'Pemasangan'},"{'Pemasangan', 'Meteran (Macet/Bermasalah)'}",1.0
+sore air daerah pandegiling keruh warna coklat kakak februari,{'Air Kotor/Bau'},"{'Lainnya', 'Air Kotor/Bau'}",1.0000000000000002
+meter ganti air macet belum bayar belum bayar lonjak tagih tidak wajar meter rusak masak x tagih mohon tindak,"{'Harga', 'Meteran (Macet/Bermasalah)'}","{'Pemasangan', 'Meteran (Macet/Bermasalah)'}",0.9999999999999994
+admin adu tidak respon tagih tiba tiba bengkak tahun ga air habis ratus,"{'Harga', 'Pelayanan'}","{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+sambikerep tidak,{'Lainnya'},"{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0
+aju di survey tidak tindak,{'Pelayanan'},"{'Pelayanan', 'Pemasangan'}",1.0000000000000002
+semenjak meter ganti tagih air rumah naik x lipat parah sih,{'Harga'},"{'Harga', 'Meteran (Macet/Bermasalah)'}",1.0
+admin daerah lurah pradah kalikendal air mati keluar air malam air pelan tindak lanjut,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+air mati hari hidup malam aja kota air mati bayar naik,"{'Harga', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+aju pilih,{'Pemasangan'},"{'Pemasangan', 'Lainnya'}",1.0
+kirim surat komplain manajer arah spv agus kata kerja di hubung kali kali feedback ga hubung lapang pdam pergi meter telepon call center pdam surabaya,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}","{'Pelayanan', 'Air Kotor/Bau'}",1.0
+selamat pagi mohon informasi wilayah medok cantik baik ya kok air mati,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000004
+admin alir air daerah kejawan mati total lanjut kira kira dampak remaja besar kejawan tidak list,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+mantap pdam,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0000000000000002
+mohon ijin info pagi air pdam daerah kru lurah ngagel rejo keruh pekat mohon ditindaklanjuti terima kasih,{'Air Kotor/Bau'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+ganti meter bayar via indomaret bayar via indomaret h masuk h masuk jadwal kunjunganluama air bocor deras tanggung milik rumah proses,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}",{'Meteran (Macet/Bermasalah)'},1.0000000000000002
+stop keran pdam rusak usia meter pdam putar pakai rugi whatsapp pdam surabaya baik stop keran kena biaya rp bayar,"{'Harga', 'Meteran (Macet/Bermasalah)'}",{'Meteran (Macet/Bermasalah)'},1.0000000000000002
+admin whatsapp menu pilih,{'Lainnya'},"{'Pemasangan', 'Lainnya'}",1.0
+lurah sambikerep admin meter belum remaja,{'Meteran (Macet/Bermasalah)'},"{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0
+tunggu area surabaya selatan teman teman,{'Lainnya'},"{'Pelayanan', 'Lainnya'}",1.0
+lapor kantor belum ditanggapin admin,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+pdam ga keluar ganti air salur air sumur ga perlu pakai pdam ga mandi air,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+lurah simolawang air pdam mati hidup malam aja adu aja ga ubah bayar naik,"{'Harga', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+pemberitahuan resmi memang atur kos kamar kena tarif a akal tugas kos hasil gitu terus ganti a kamar bukan kamar,"{'Harga', 'Pelayanan'}",{'Harga'},0.999999999999999
+bayar ganti meter air hilang tapi tidak pasang alas stop keran nya kosong dan kira tidak tahu suruh beli sendiri sudah bayar denda meter hilang mahal suruh beli stop keran sendiri gimana layan,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}","{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+rumah belum pipa admin,{'Pemasangan'},"{'Pemasangan', 'Air Tidak Mengalir'}",1.0
+admin daftar kantor admin,{'Lainnya'},"{'Pemasangan', 'Lainnya'}",1.0
+lapor by whatsapp pdam ga kakak daftar kurang syarat pasang,"{'Pelayanan', 'Pemasangan'}",{'Pemasangan'},1.0000000000000004
+pasang laku bayar,{'Pemasangan'},"{'Pelayanan', 'Pemasangan'}",1.0
+admin air rumah ga hidup takut bocor admin,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Meteran (Macet/Bermasalah)'}",1.0
+admin uda daftar data lengkap proses tunggu konfirmasi whatsapp call center,{'Lainnya'},"{'Pemasangan', 'Lainnya'}",1.0000000000000002
+agustus belum tanggap pasang ganti admin,"{'Pelayanan', 'Pemasangan'}","{'Pemasangan', 'Meteran (Macet/Bermasalah)'}",1.0
+kan bangun rumah belum listrik,{'Lainnya'},"{'Pemasangan', 'Lainnya'}",1.0
+nama milik tanah pasang pdam beda nama,{'Pemasangan'},"{'Pemasangan', 'Lainnya'}",1.0000000000000002
+admin daftar proses pasang tunggu nya,{'Pemasangan'},"{'Pemasangan', 'Lainnya'}",1.0000000000000002
+halo admin pdam warga babatan pratama bayar ganti keran air bocor tugas belum bantu ditindaklanjuti,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}",{'Meteran (Macet/Bermasalah)'},1.0
+air pdam surabaya pusat punya keruh air sumur bayar mahal air keruh bau,"{'Harga', 'Air Kotor/Bau'}",{'Air Kotor/Bau'},1.0000000000000004
+air pdam kebonsari jambang keruh,{'Air Kotor/Bau'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+kosong,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+air pdam rumah gunungsari indah alir normal jam mohon respon terima kasih,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+surabaya utara tidak hidup air,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+surabaya utara,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+kualitas air perlu cek kontrol jangan cuman cek meter sajadan cari untung gede hati mampu konsumen,"{'Pelayanan', 'Air Kotor/Bau'}",{'Pelayanan'},1.0000000000000002
+telepon bebas pulsa suara tidak dengar operator pdam hola halo halo halo,{'Pelayanan'},"{'Harga', 'Pelayanan'}",1.0
+bayar tanggal sabar,{'Lainnya'},"{'Harga', 'Lainnya'}",1.0000000000000002
+alfamart tidak ada diskon kakak jarang indomaret,{'Lainnya'},"{'Harga', 'Lainnya'}",1.0
+air tidak hidup bayar lapor kali tidak teknisi ke rumah bagimana,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000002
+mati hidup rawat surabaya,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+admin adu ganti meter hingga kerja belum tanggap,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}","{'Pemasangan', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+daerah panjangjiwo mati kakak,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+cek area jemurwonosari air kotor pagi siang malam mati jam pagi tidak keluar siang keluar dikit itu pun jam an malam jam keluar dikit,{'Air Kotor/Bau'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000002
+alhamdulillah mantap umum estimasi kerja jam selesai dalam jam mantap semangat all tim tukang pam surabaya perumda air minum surya sembada surabaya,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0000000000000004
+rencana efektif kolaborasi kunci sukses good job teman teman moga layan baik langgan cinta,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0000000000000002
+admin babatan labansari mulyorejo air ga alir admin,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+terima kasih informasi salam kompak komunitas informasi masyarakat lurah pucang sewu mitra kerja dinas informasi komunikasi kota surabaya,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+semangat pdam kota surabaya,{'Lainnya'},"{'Harga', 'Lainnya'}",1.0000000000000002
+alhamdulillah moga layan baik masyarakat guna air,{'Lainnya'},"{'Pelayanan', 'Lainnya'}",1.0
+admin pagi alias subuh hingga jam air rumah ku jalan zamhuri rungkut air keluar debit nya dikit ganggu bosan telepon layan langgan mandi kantor kantor kantor gresik rumah rungkut,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+sip admin usaha mati air tidak,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+lucu perum manyar jaya semenjak kerja gorong manyar indah manyar jaya manyar rejo air pagi pagi malam air mati hidup malam bayang tampung air protes telepon capek heran libur nasional air hidup lancar kayak tetangga sini tidak guna tandon tidak mas semenjak air buruk jelek baik pdam,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+laku rencana pikir matang alir air wilayah lurah airlangga alir lancar diskriminasi dampak kos wilayah,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+siang bulak rukem timur air daerah debit kecil cenderung tidak keluar lapor datang tidak lancar kata gali memang keluar selanjunya kecil air keruh,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},0.9999999999999998
+surat tanah nya nama tua,{'Lainnya'},"{'Pemasangan', 'Lainnya'}",1.0
+kakak pam nya sistem prabayar kakak,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+mohon informasi adu kena penalti,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+mantap srikandi pdam surabaya,{'Lainnya'},"{'Pelayanan', 'Lainnya'}",1.0000000000000002
+baik memang,{'Lainnya'},"{'Lainnya', 'Air Kotor/Bau'}",1.0
+gunung anyar,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000004
+admin sambikerep mati air ga pemberitahuan pagi masak sekolah kerja,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+lambat nyimak coba dari tadi deh isi air admin,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+sore kakak,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+update progres kira kira selesai ga,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",0.9999999999999999
+selesai air loh tidak sama sekali rumah,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+mati pdam gunung anyar sawah sekolah layar,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+ayo hidup gunung anyar,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+rumah anak yatim amanah ummat umi barokah jalan mastrip warugunung rw warugunung karangpilang surabaya uang dtansfer bri an nur barokah konfirmasi whatsapp,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+gunung anyar belum hidup admin,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+tidak mandi gunung anyar mati total,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+moga kerja cepat selesai admin,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000004
+tidak respon sama sekali,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+ijin info baik gunung anyar normalisasi anda air nya belum lancar malam keluar itu pun jam pagi macet tunggu air normal,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000002
+respon tidak masuk,{'Lainnya'},"{'Pelayanan', 'Lainnya'}",1.0
+gerak cepat atas keluh tagih lonjak pagi air pdam mati tidak keluar jam siang hidup kecil debit jam mati sampa,{'Harga'},"{'Harga', 'Pelayanan'}",1.0
+tindak lanjut datang kantor,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+tanya aju pasang tanggal maret survey tapi tidak jelas pasang nya,"{'Pelayanan', 'Pemasangan'}",{'Pemasangan'},1.0
+bu telepon kali sibuk whatsapp ga respon,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+bapak ibu ganti stop keran kena biaya rp bayar indomaret tagih pdam non air aplikasi gojek go tagih pdam surabaya non air kode bayar jangka kerja bayar terima kasih,{'Harga'},"{'Harga', 'Meteran (Macet/Bermasalah)'}",0.9999999999999999
+lapor belum tindak,{'Pelayanan'},"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}",1.0
+area kapas madya admin mau cek bocor soal tagih pam banget pernah adu pdam suruh bongkar salur pipa,{'Kebocoran'},"{'Kebocoran', 'Air Tidak Mengalir'}",1.0
+lontar admin,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+indra said genre hidup,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+suka ekapratama achmadi ipar maut,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+admin area kodam air nya mati tidak informasi pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000004
+mohon bantu batal adu pdam atas,{'Pelayanan'},"{'Pelayanan', 'Air Kotor/Bau'}",1.0
+air mati ga pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+admin gaada pemberitahuan kodam mati total,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+admin kodam mati admin air admin bisa bikin gebrak pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+mohon kenan buka pesan,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+air pulosari mati tidak pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+harga m kubik pdam surabaya,{'Harga'},"{'Harga', 'Lainnya'}",1.0000000000000002
+pdam mati jam ga pemberitahuan,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000002
+pesan lapor bocor pipa pdam jalan mohon ditindaklanjuti,{'Kebocoran'},"{'Pemasangan', 'Kebocoran'}",1.0
+hidup air admin air mati pemberitahuan hambat aktivitas pagi,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0000000000000002
+daerah kapas lor camat kapas madya hari tidak keluar air admin,{'Air Tidak Mengalir'},"{'Kebocoran', 'Air Tidak Mengalir'}",1.0
+air tidak keluar jam sibuk komplain pdam dapat solusi suruh pasang pompa air pasang tandon,{'Air Tidak Mengalir'},"{'Pemasangan', 'Air Tidak Mengalir'}",1.0
+maaf daerah surabaya barat air kotor hidup tidak deras bayar mahal turun tarif air pdam,"{'Harga', 'Air Kotor/Bau'}","{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000002
+sip,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+murah keruh kotor,"{'Harga', 'Air Kotor/Bau'}",{'Air Kotor/Bau'},1.0000000000000002
+karangrejo air pdam nya pasir lapor kali kali,{'Air Kotor/Bau'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000002
+air pdam murah keruh percuuma kak,"{'Harga', 'Air Kotor/Bau'}",{'Air Kotor/Bau'},1.0000000000000002
+air zat kimia atom hidrogen atom oksigen rumus kimia ho australia,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+admin cek pesan,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+selesai jam,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+selalu biasa suka mati air tidak pakai umum,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+jelang sore belum alir,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+kolom komen estimasi jam selesai jam set belum hidup air,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000004
+air padam wilayah lurah kebraon baik selesai belum hidup normal terima kasih,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+ayo tidak nyala air kebraon aktivitas,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+kasih informasi mati,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+lontar belum hidup,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+umum mati admin kali kali komplain tidak perhati saran customer kan baik rencana tidak buru,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+daerah muhammad tepat dukuh kawal kendal air mati hidup malam lancar kali kali,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000004
+halo admin daerah kedurus air hidup pagi air mati,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+posting lambat admin,{'Lainnya'},"{'Harga', 'Lainnya'}",1.0
+kedurus selesai jam berapa air normal,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+cerah,{'Lainnya'},"{'Lainnya', 'Kebocoran'}",1.0
+mati air pemberitahuan dong supaya siap area kedurus mati sih,"{'Pelayanan', 'Air Tidak Mengalir'}",{'Air Tidak Mengalir'},1.0
+rumah dampak daerah jalan mastrip baik sore,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+rencana padam pdam share instagram minimal langgan tampung air nya terima kasih,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+mikir beli takjil,{'Lainnya'},"{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0
+bikin admin video tiktok bikin ketawa unggah air aja,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+langgan pdam kota surabaya ringan biaya tagih pdam,{'Harga'},"{'Harga', 'Lainnya'}",1.0
+maaf daftar survey belum whatsapp pemberitahuan kantor bayar kontrak,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+selamat pagi mohon cek pesan ganggu air injoko gayung,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+mohon informasi baratajaya mati air,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+halo admin manuk kulon rumah belum hidup,{'Air Tidak Mengalir'},"{'Pemasangan', 'Air Tidak Mengalir'}",1.0000000000000002
+pelan admin keluar air belum selesai,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+mohon informasi admin raya lontar pintu keluar ptc alir air kecil malam kencang kecil mohon tindak lanjut admin,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0000000000000002
+air pakuwon surabaya barat kecil,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+resap keluar pipa dalam pdam deteksi mohon cerah,{'Kebocoran'},"{'Lainnya', 'Kebocoran'}",1.0000000000000002
+daerah sulit air air tampung air hujan belum sambung pdam masuk rumah kota bukan pelosok desa desa sedih nya,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+aju selalu undur belum kendala apa juga tidak informasi aplikasi cis hapus,"{'Pelayanan', 'Pemasangan'}","{'Pemasangan', 'Lainnya'}",1.0
+respon,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+editor hujan,{'Lainnya'},"{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0
+terus benah terus baik terus unggul,{'Lainnya'},"{'Lainnya', 'Kebocoran'}",1.0000000000000002
+admin daerah jojoran rumah keluar nya kecil admin tunggu malam naik dalam rumah air nya admin,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+daerah tales mati mohon perhati,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0000000000000004
+karang wiyung maret tidak keluar tapi tetangga kanan kiri air nya normal,{'Air Tidak Mengalir'},"{'Air Tidak Mengalir', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+pesan admin,{'Lainnya'},"{'Pelayanan', 'Lainnya'}",1.0
+admin kawasan kampung hidup air malam mohon cek,{'Air Tidak Mengalir'},"{'Kebocoran', 'Air Tidak Mengalir'}",1.0000000000000002
+mohon maaf bantu menindaklanjuti lapor air keruh daerah ngagel jaya selatan tanggal februari lapor via whatsapp tanggal maret lapor via whatsapp mohon perhati kualitas air guna butuh hari terima kasih,"{'Pelayanan', 'Air Kotor/Bau'}",{'Air Kotor/Bau'},1.0
+admin pasang pdam usaha kontrak surat tanah,{'Pemasangan'},"{'Pemasangan', 'Lainnya'}",1.0
+dadak selalu sih,{'Pelayanan'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+daerah wisma pagesangan mati air selalu sih capek,{'Air Tidak Mengalir'},"{'Pelayanan', 'Air Tidak Mengalir'}",1.0
+admin cek aku bayar tagih ga keluar tagih nyakatanya bayar periode tanggal tanggal ga keluar tagih telepon layan langgan suruh bayar tanggal bayar tagih,{'Harga'},"{'Harga', 'Lainnya'}",1.0000000000000002
+ijin admin buka tutup,{'Lainnya'},"{'Pelayanan', 'Lainnya'}",1.0000000000000002
+lurah medok cantik admin,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+ganti tahun uda x catat meter gerak cepat mati lapor rumah meter mati tidak kayak pln meter mati tahun kontrak bayar abonemen meter rusak catat meter ganti report meter mati alhasil bayar tagih belakang total juta,"{'Harga', 'Pelayanan'}","{'Pelayanan', 'Lainnya'}",1.0
+mem,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+bayar tidak,{'Lainnya'},"{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+benar gratis admin ganti meter air biaya,"{'Harga', 'Meteran (Macet/Bermasalah)'}",{'Harga'},1.0000000000000002
+semenjak meter rumah ganti air rumah tidak nyala,{'Meteran (Macet/Bermasalah)'},"{'Harga', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+pak kalau tinggi meter bayar tidak letak bawah susah tugas klu cek meter,"{'Harga', 'Meteran (Macet/Bermasalah)'}","{'Lainnya', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+protes ganti meter maka tagih naik tajam nya persis tahun benar,"{'Harga', 'Meteran (Macet/Bermasalah)'}",{'Meteran (Macet/Bermasalah)'},1.0
+surabaya barat belum ganti,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+bulan inspeksi belum tindak lanjut meter air buram tidak putar,"{'Pelayanan', 'Meteran (Macet/Bermasalah)'}",{'Meteran (Macet/Bermasalah)'},1.0000000000000002
+lapor kena biaya ganti meter,"{'Harga', 'Meteran (Macet/Bermasalah)'}","{'Harga', 'Pemasangan'}",1.0
+ganti meter,{'Meteran (Macet/Bermasalah)'},"{'Harga', 'Meteran (Macet/Bermasalah)'}",1.0000000000000002
+gunung anyar belum admin,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+lokasi ketintang admin,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+pakis gunung tunggu gilir area sawah,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0000000000000002
+aja,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+mantap admin lanjut,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+laku bayar tugas profesional,{'Pelayanan'},"{'Pelayanan', 'Pemasangan'}",1.0
+layan baik,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+terima kasih baik gerak cepat,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+permisi admin tugas pdam bilang program pdam meter ganti gratis benar admin,"{'Harga', 'Pelayanan'}",{'Pelayanan'},1.0000000000000002
+air daerah jambang kecil lapor kali kali belum tugas cek,"{'Pelayanan', 'Air Tidak Mengalir'}","{'Air Tidak Mengalir', 'Air Kotor/Bau'}",1.0
+belum selesai,{'Lainnya'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+terima kasih info selalu update nya,{'Pelayanan'},"{'Pelayanan', 'Lainnya'}",1.0
+gunung anyar tambak dampak alir air rumah kecil,{'Air Tidak Mengalir'},"{'Lainnya', 'Air Tidak Mengalir'}",1.0
+admin daerah sidodadi pipa bocor mohon cek,{'Kebocoran'},"{'Kebocoran', 'Air Tidak Mengalir'}",1.0

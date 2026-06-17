@@ -1,0 +1,40 @@
+1.	Adjektiva Tunggal
+Aturan pertama adalah adjektiva tunggal. Jika pada kalimat ditemukan kata sifat yang memiliki nilai sentimen dan tidak terlibat dalam kombinasi aturan lain, maka nilai sentimennya langsung diambil sebagai nilai sentimen kalimat.
+Contoh yang diambil dari data adalah klausa lama pada komentar: 
+“pergantian meter bayar via indomaret, bayar via indomaret h masuk, h masuk jadwalkan kunjungan. lama, air sudah bocor deras tanggung pemilik rumah. lama prosesnya??.”
+Pada klausa ini, kata “lama” termasuk Adjektiva dengan nilai -1, sehingga perhitungannya adalah 
+score = sentiment(lama) = -1.
+Dengan demikian, klausa tersebut dikategorikan sebagai sentimen negatif.
+2.	Verba Tunggal
+Aturan kedua adalah verba tunggal. Jika pada kalimat ditemukan kata kerja yang memiliki nilai sentimen dan tidak berpasangan dengan aturan lain, maka nilai sentimennya langsung digunakan.
+Contoh dari data adalah klausa bayar pada komentar 
+“ada perbaikan ta. air keluar rumah kecil kadang tidak. nyala. bayar.”
+Pada klausa ini, kata “bayar” termasuk Verba dengan nilai -1, sehingga perhitungannya adalah 
+score = sentiment(bayar) = -1.
+Hasil akhirnya adalah sentimen negatif.
+3.	Preposisi + Adjektiva
+Aturan ketiga adalah kombinasi preposisi dan adjektiva. Contoh dari data adalah klausa [“air”, “dalam”, “keruh”] yang berasal dari komentar 
+“airnya dalam keruh, hampir air beras.”
+Pada klausa ini, kata “dalam” termasuk Preposisi dengan nilai 1, sedangkan kata “keruh” termasuk Adjektiva dengan nilai -1. Maka nilai pasangan tersebut dihitung dengan AND(1, -1) = -1. Selain itu, kata “air” pada klausa ini juga memiliki nilai -1 di dalam kamus, sehingga total skor kalimat menjadi 
+score = sentiment(air) + AND(dalam, keruh) = -1 + (-1) = -2.
+Oleh karena itu, klausa ini dikategorikan sebagai sentimen negatif.
+ 
+4.	Preposisi + Verba
+Aturan keempat adalah kombinasi preposisi dan verba. Pada implementasi program, pola ini banyak muncul dalam bentuk negasi seperti [“tidak”, “ada”, “atau”, “tidak”, “keluar”]. 
+Contoh dari data adalah klausa pemasangan tidak ada kelanjutan survey yang berasal dari komentar.
+“pemasangan tidak ada kelanjutan survey. padahal katanya komplain pelayanan pelanggan whatsapp. sedangkan whatsapp tidak ada tanggapan.”
+Pada klausa ini, model juga memberikan complaint context penalty sebesar -1 karena terdapat konteks keluhan layanan. Setelah itu, kata tidak diberi nilai -1, sedangkan kata ada bernilai 0. Maka skor yang diperoleh adalah 
+score = complaint penalty + sentiment(tidak) + sentiment(ada) = -1 + (-1) + 0 = -2.
+Dengan demikian, klausa ini dikategorikan sebagai sentimen negatif.
+5.	Verba + Adjektiva
+Aturan kelima adalah kombinasi verba dan adjektiva. Contoh dari data dapat dilihat pada klausa [“padahal”, “bayar”, “mahal”, “tapi”, “air”, “keruh”, “bau”], yang berasal dari komentar 
+“air pdam surabaya pusat punyaku keruh air sumur. padahal bayarnya mahal tapi airnya keruh bau.”
+Pada bagian [“bayar”, “mahal”], kata “bayar” termasuk Verba dengan nilai -1 dan kata “mahal” termasuk Adjektiva dengan nilai -1. Maka nilai pasangan tersebut dihitung dengan NAND(-1, -1) = -1. Pada klausa lengkap ini, sistem juga menemukan frasa “air keruh” yang bernilai -1 serta kata bau yang bernilai -1, sehingga total skor klausa menjadi 
+score = NAND(bayar, mahal) + sentiment(air keruh) + sentiment(bau) = -1 + (-1) + (-1) = -3.
+Oleh karena itu, klausa ini dikategorikan sebagai sentimen negatif.
+6.	Preposisi + Verba + Adjektiva
+Aturan keenam adalah kombinasi preposisi, verba, dan adjektiva. Contoh dari data adalah klausa 
+“air tidak keluar mati.”
+Secara konsep, pola ini memuat preposisi “tidak”, verba “keluar”, dan adjektiva “mati”. Jika dihitung berdasarkan susunan aturannya, pasangan verba adjektiva dihitung terlebih dahulu, kemudian digabungkan dengan preposisi. Namun, pada implementasi program saat ini, pola “tidak keluar” sudah terdeteksi sebagai frasa negatif kuat dengan nilai -1. Setelah itu, kata mati masih dihitung sebagai adjektiva tunggal dengan nilai -1. Maka total skor klausa tersebut adalah 
+score = sentiment(tidak keluar) + sentiment(mati) = -1 + (-1) = -2.
+Dengan demikian, klausa ini dikategorikan sebagai sentimen negatif.

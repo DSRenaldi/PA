@@ -1,0 +1,20 @@
+1. Mengapa seluruh data dipakai sebagai data test?
+Karena penelitian ingin menguji sistem pada seluruh komentar pelanggan yang tersedia, baik komentar satu konteks maupun dua konteks. Jumlah data test yang digunakan adalah 1670 data. Dengan demikian, evaluasi mencerminkan perilaku sistem pada semua data yang dimiliki penelitian.
+
+2. Mengapa threshold untuk aspek 2 lebih tinggi daripada aspek 1?
+Karena aspek kedua lebih berisiko menjadi false positive. Jika threshold aspek kedua dibuat sama rendahnya dengan aspek pertama, sistem bisa terlalu sering menambahkan aspek tambahan meskipun kemiripannya belum cukup kuat. Dengan threshold 0.40, hanya aspek kedua yang benar-benar meyakinkan yang akan dimasukkan.
+
+3. Mengapa sentiment analysis menggunakan normalized text bukan stemmed text?
+Karena pada tahap sentimen, makna kata domain perlu tetap terjaga. Kata seperti pengajuan, peremajaan, dan tindak lanjut bisa berubah maknanya atau menjadi kurang alami setelah stemming. Oleh sebab itu, normalized_text dipilih agar rule dan kamus lebih mudah mengenali makna yang sebenarnya.
+
+4. Apa fungsi rule router?
+Rule router berfungsi mengarahkan kata ke rule yang sesuai berdasarkan part-of-speech. Jika kata adalah Verba, sistem mengarah ke Rule 2 atau Rule 5. Jika kata adalah Preposisi, sistem mengarah ke Rule 3, Rule 4, atau Rule 6. Jika bukan keduanya, kata diproses sebagai kata tunggal. Dengan cara ini, sistem tidak menghitung semua rule sekaligus untuk setiap kata.
+
+5. Mengapa komentar berbentuk pertanyaan bisa diberi label netral?
+Karena tidak semua pertanyaan mengandung keluhan yang tegas. Dalam implementasi, jika komentar berbentuk pertanyaan dan tidak memiliki sinyal negatif kuat, sistem memberi skor 0 atau netral. Aturan ini dibuat agar pertanyaan informatif seperti prosedur, syarat, atau permintaan informasi tidak otomatis dianggap negatif.
+
+6. Mengapa perlu strong negative phrase dan complaint context penalty?
+Karena banyak komentar pelanggan menggunakan pola keluhan yang tidak selalu tertangkap cukup baik oleh rule POS dasar. Frasa seperti tidak ada tanggapan, air mati, atau tagihan melonjak langsung menunjukkan keluhan kuat. Complaint context penalty juga membantu ketika kata-kata seperti mohon, lapor, atau komplain muncul bersama kata masalah layanan. Kedua penyesuaian ini meningkatkan sensitivitas sistem terhadap pola pengaduan nyata.
+
+7. Apa kelemahan utama pendekatan yang digunakan?
+Untuk klasifikasi aspek, kelemahan utamanya adalah sistem hanya bisa menghasilkan maksimal dua aspek karena segmentasi dibatasi dua segmen. Selain itu, model similarity sangat bergantung pada kesamaan kata dan frasa dengan data train. Untuk sentiment analysis, performa sangat bergantung pada kelengkapan kamus, frasa, dan rule. Jika komentar menggunakan bahasa yang sangat informal atau ambigu, kesalahan prediksi masih bisa terjadi.
