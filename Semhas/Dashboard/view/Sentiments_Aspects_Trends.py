@@ -356,6 +356,7 @@ def show():
             default="Per Bulan",
             label_visibility="collapsed",
         )
+        st.markdown("#### Halaman ini hanya menampilkan user data saja")
 
         df = _load_user_data()
         if df.empty:
@@ -384,32 +385,32 @@ def show():
 
         with st.container(border=True):
             st.subheader("Tren Persebaran Sentimen")
-            st.caption(f"Jumlah ulasan per kategori sentimen berdasarkan periode ({period_label})")
+            st.markdown(f"###### Jumlah ulasan per kategori sentimen berdasarkan periode ({period_label})")
             st.altair_chart(_make_volume_chart(period_df, mode, period_label), width="stretch")
 
         with st.container(border=True):
             st.subheader("Tren Persebaran Aspek")
-            st.caption(f"Jumlah kemunculan aspek berdasarkan periode ({period_label})")
+            st.markdown(f"###### Jumlah kemunculan aspek berdasarkan periode ({period_label})")
             st.altair_chart(_make_aspect_trend_chart(period_df, mode, period_label), width="stretch")
 
         left_col, right_col = st.columns(2)
         with left_col.container(border=True):
             st.subheader("Distribusi Aspek")
-            st.caption("Aspek yang paling banyak dibahas")
+            st.markdown("###### Aspek yang paling banyak dibahas")
             st.altair_chart(_make_aspect_distribution(period_df), width="stretch")
 
         with right_col.container(border=True):
             st.subheader("Sentimen per Aspek")
-            st.caption("Komposisi positif, netral, dan negatif per aspek")
+            st.markdown("###### Komposisi positif, netral, dan negatif per aspek")
             st.altair_chart(_make_aspect_sentiment_chart(period_df), width="stretch")
 
         trend_col, heatmap_col = st.columns(2)
         with trend_col.container(border=True):
             st.subheader("Tren Aspek Mingguan")
-            st.caption("Perubahan volume aspek pada minggu terbaru")
+            st.markdown("###### Perubahan volume aspek pada minggu terbaru")
             st.dataframe(_make_weekly_aspect_trend(period_df), hide_index=True, width="stretch")
 
         with heatmap_col.container(border=True):
             st.subheader("Heatmap Sentimen Negatif")
-            st.caption("Intensitas keluhan negatif per hari dan minggu")
+            st.caption("###### Intensitas keluhan negatif per hari dan minggu")
             st.altair_chart(_make_negative_heatmap(period_df), width="stretch")

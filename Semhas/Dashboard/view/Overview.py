@@ -8,8 +8,10 @@ from utility.data_api import (
     get_overview_metrics,
 )
 from utility.db_api import (
+    get_database_mtime,
     get_database_option_labels,
     get_database_options,
+    get_table_data,
     get_table_comment_data,
 )
 
@@ -208,8 +210,50 @@ def data_source_dropdown(table_options: list[str], table_labels: dict[str, str])
         format_func=lambda table_name: table_labels[table_name],
         index=0,
         key="overview_data_source",
-        help="Pilih tabel database yang ingin ditampilkan pada dashboard.",
+        help="Trial - Test Data: Data test yang digunakan pada saat proses develop model.\n\n" \
+        "Trial - Train Data: Data train yang digunakan pada saat proses develop model.\n\n" \
+        "User Data: Data yang diinputkan oleh user",
     )
+
+
+def apply_user_data_date_filter(df: pd.DataFrame, page) -> pd.DataFrame:
+    raw_user_data = get_table_data("user_data", db_mtime=get_database_mtime())
+    if "date" not in raw_user_data.columns or "comment_id" not in raw_user_data.columns:
+        return df
+
+    date_reference = raw_user_data[["comment_id", "date"]].drop_duplicates("comment_id").copy()
+    date_reference["Tanggal Posting"] = pd.to_datetime(
+        date_reference["date"],
+        errors="coerce",
+        dayfirst=True,
+    )
+    df = df.merge(
+        date_reference[["comment_id", "Tanggal Posting"]],
+        on="comment_id",
+        how="left",
+    )
+    valid_dates = df["Tanggal Posting"].dropna()
+    if valid_dates.empty:
+        return df
+
+    with page:
+        min_date = valid_dates.min().date()
+        max_date = valid_dates.max().date()
+        date_range = st.date_input(
+            "Filter Rentang Tanggal",
+            value=(min_date, max_date),
+            min_value=min_date,
+            max_value=max_date,
+            key="overview_user_date_range",
+        )
+
+    if date_range and len(date_range) == 2:
+        start_date, end_date = date_range
+        df = df[
+            df["Tanggal Posting"].dt.date.between(start_date, end_date)
+        ].copy()
+
+    return df.drop(columns=["Tanggal Posting"])
 
 
 def show() -> None:
@@ -221,7 +265,7 @@ def show() -> None:
     with page:
         header_left, header_right = st.columns([3.4, 1], vertical_alignment="bottom")
         header_left.title("Analisis Layanan Air")
-        header_left.caption("Pantauan sentimen pelanggan dan 10 kategori aspek.")
+        header_left.markdown("###### Pantauan sentimen pelanggan dan 10 kategori aspek.")
         with header_right:
             selected_table = data_source_dropdown(table_options, table_labels)
 
@@ -242,6 +286,13 @@ def show() -> None:
                 "dan sentimen yang bisa ditampilkan."
             )
         return
+
+    if selected_table == "user_data":
+        df = apply_user_data_date_filter(df, page)
+        if df.empty:
+            with page:
+                st.warning("Tidak ada data user_data pada rentang tanggal yang dipilih.")
+            return
 
     metrics = get_overview_metrics(df)
     total_comments = metrics["total_comments"]
@@ -286,16 +337,16 @@ def show() -> None:
         with source_col.container(border=True):
             logo_area, source_area = st.columns([1.7, 1])
             logo_area.image(str(PDAM_LOGO_PATH), width=165)
-            source_area.caption("Sumber Data")
-            st.caption("INSTAGRAM")
+            source_area.markdown("###### Sumber Data")
+            st.markdown("###### INSTAGRAM")
             st.subheader("[@pdamsuryasembada](https://www.instagram.com/pdamsuryasembada/)")
 
         with aspect_col.container(border=True):
             title_col, badge_col = st.columns([1.7, 1])
             title_col.subheader("Aspek Layanan")
-            badge_col.caption("TOP 5 DARI 10")
+            badge_col.markdown("###### TOP 5 DARI 10")
             st.altair_chart(make_top_aspects_chart(top_aspects), width='stretch')
-            st.caption(f"Kategori lainnya: {', '.join(other_aspects[:5])}.")
+            st.markdown(f"###### Kategori lainnya: {', '.join(other_aspects[:5])}.")
             if st.button("Lihat Semua 10 Aspek", width='stretch'):
                 st.session_state.page = "Analisis Aspek"
                 st.rerun()

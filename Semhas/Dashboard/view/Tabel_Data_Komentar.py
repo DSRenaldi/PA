@@ -83,16 +83,16 @@ def render_detail_view(data: pd.DataFrame, comment_id: int) -> None:
     
     with st.container(border=True):
         st.subheader(f"KOMENTAR ASLI")
-        st.markdown(f'*"{full_text}"*')
+        st.markdown(f'###### *"{full_text}"*')
         if "postUrl" in detail_df.columns:
             info_cols = st.columns(4)
-            info_cols[0].caption("POST URL")
+            info_cols[0].markdown("###### POST URL")
             info_cols[0].write(detail_df.iloc[0].get("postUrl", ""))
-            info_cols[1].caption("TANGGAL POSTING")
+            info_cols[1].markdown("###### TANGGAL POSTING")
             info_cols[1].write(detail_df.iloc[0].get("Tanggal Posting", ""))
-            info_cols[2].caption("USERNAME")
+            info_cols[2].markdown("###### USERNAME")
             info_cols[2].write(detail_df.iloc[0].get("Username", ""))
-            info_cols[3].caption("TANGGAL INPUT")
+            info_cols[3].markdown("###### TANGGAL INPUT")
             info_cols[3].write(detail_df.iloc[0].get("tanggal_input", ""))
     
     st.write("")
@@ -105,21 +105,46 @@ def render_detail_view(data: pd.DataFrame, comment_id: int) -> None:
             col1, col2, col3 = st.columns([3, 1, 1])
             
             with col1:
-                st.caption(f"Segment {idx}")
+                st.markdown(f"###### Segment {idx}")
                 st.markdown(f'*"{row["segmented_text"]}"*')
             
             with col2:
-                st.caption("ASPEK")
+                st.markdown("###### ASPEK")
                 st.write(row["predicted_aspect"])
             
             with col3:
-                st.caption("SENTIMEN")
+                st.markdown("###### SENTIMEN")
                 sentiment = row["final_sentiment_label"]
                 color = SENTIMENT_COLORS[sentiment]
                 st.markdown(
                     f'<span style="background-color: {color}; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 12px;">{sentiment}</span>',
                     unsafe_allow_html=True,
                 )
+
+
+def render_detail_popup(data: pd.DataFrame) -> None:
+    selected_comment_id = st.session_state.get("selected_comment_detail_id")
+    if selected_comment_id is None:
+        return
+
+    dialog = getattr(st, "dialog", None)
+
+    def render_content() -> None:
+        render_detail_view(data, int(selected_comment_id))
+        if st.button("Tutup", width="stretch"):
+            st.session_state.pop("selected_comment_detail_id", None)
+            st.rerun()
+
+    if dialog is None:
+        with st.container(border=True):
+            render_content()
+        return
+
+    @dialog(f"Detail Komentar ID: #{int(selected_comment_id):04d}", width="large")
+    def detail_dialog():
+        render_content()
+
+    detail_dialog()
 
 
 def show() -> None:
@@ -315,7 +340,7 @@ def show() -> None:
 
         # Display table container
         with st.container(border=True):
-            st.caption(f"Menampilkan {start_idx + 1}-{end_idx} dari {total_items:,} entri")
+            st.markdown(f"###### Menampilkan {start_idx + 1}-{end_idx} dari {total_items:,} entri")
 
             # Header row
             column_sizes = [0.5, 2.5, 2, 1.5, 1.2, 1.2]
@@ -365,12 +390,13 @@ def show() -> None:
                 with action_col:
                     unique_key = f"view_{start_idx + idx}_{int(row['comment_id'])}"
                     if st.button("View", key=unique_key):
-                        st.session_state[f"show_detail_{start_idx + idx}"] = True
+                        st.session_state["selected_comment_detail_id"] = int(row["comment_id"])
+                        st.rerun()
 
                 st.divider()
                 
                 # Show detail view if expanded
-                if f"show_detail_{start_idx + idx}" in st.session_state and st.session_state[f"show_detail_{start_idx + idx}"]:
+                if False and f"show_detail_{start_idx + idx}" in st.session_state and st.session_state[f"show_detail_{start_idx + idx}"]:
                     st.write("")
                     col_back, col_title = st.columns([1, 5])
                     with col_back:
@@ -386,16 +412,18 @@ def show() -> None:
                     st.write("")
                     st.divider()
 
+        render_detail_popup(df)
+
         # Pagination info
         st.write("")
         info_cols = st.columns([1, 3, 1])
         with info_cols[1]:
-            st.caption(f"Showing {start_idx + 1}-{end_idx} of {total_items:,} entries")
+            st.markdown(f"###### Showing {start_idx + 1}-{end_idx} of {total_items:,} entries")
 
         st.write("")
         with st.container(border=True):
             st.subheader("Sentimen per Aspek")
-            st.caption("Komposisi sentimen untuk 10 aspek teratas berdasarkan data yang sedang difilter.")
+            st.markdown("###### Komposisi sentimen untuk 10 aspek teratas berdasarkan data yang sedang difilter.")
             if filtered_df.empty:
                 st.info("Tidak ada data untuk ditampilkan pada chart.")
             else:

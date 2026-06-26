@@ -125,6 +125,18 @@ def render_aspect_card(row: pd.Series) -> None:
         st.caption(f"NETRAL: {format_id_number(int(row['Netral']))} DATA")
         st.caption(f"NEGATIF: {format_id_number(int(row['Negatif']))} DATA")
 
+def data_source_dropdown(table_options: list[str], table_labels: dict[str, str]) -> str:
+    return st.selectbox(
+        "Sumber data",
+        table_options,
+        format_func=lambda table_name: table_labels[table_name],
+        index=0,
+        key="overview_data_source",
+        help="Trial - Test Data: Data test yang digunakan pada saat proses develop model.\n\n" \
+        "Trial - Train Data: Data train yang digunakan pada saat proses develop model.\n\n" \
+        "User Data: Data yang diinputkan oleh user",
+    )
+
 
 def show():
     table_options = get_database_options()
@@ -136,12 +148,7 @@ def show():
         header_left, header_right = st.columns([3.4, 1], vertical_alignment="bottom")
         header_left.title("Aspect Analysis")
         with header_right:
-            selected_table = st.selectbox(
-                "Sumber data",
-                table_options,
-                format_func=lambda table_name: table_labels[table_name],
-                key="aspect_data_source",
-            )
+            selected_table = data_source_dropdown(table_options, table_labels)
 
     try:
         df = get_table_comment_data(selected_table)
@@ -167,7 +174,7 @@ def show():
     with page:
         with st.container(border=True):
             title_col, menu_col = st.columns([3, 0.3])
-            title_col.caption("DISTRIBUSI ASPEK")
+            title_col.subheader("DISTRIBUSI ASPEK")
             menu_col.write("⋮")
             chart_col, legend_col = st.columns([1.25, 1], vertical_alignment="center")
             chart_col.altair_chart(make_distribution_donut(summary_df), width='stretch')
@@ -175,9 +182,9 @@ def show():
                 render_distribution_legend(summary_df)
 
         st.header("Analisis Per Aspek")
-        st.write(
-            "Ringkasan sentimen dan volume mention untuk setiap kategori keluhan "
-            "dan layanan utama PDAM Surya Sembada."
+        st.markdown(
+            "###### Ringkasan sentimen dan volume mention untuk setiap kategori keluhan "
+            "###### dan layanan utama PDAM Surya Sembada."
         )
 
         top_aspects = summary_df.head(10)
@@ -188,7 +195,7 @@ def show():
                     render_aspect_card(row)
 
         with st.container(border=True):
-            st.caption("MATRIKS ANALISIS MENDALAM")
+            st.markdown("###### MATRIKS ANALISIS MENDALAM")
             table_df = summary_df[
                 ["Nama Aspek", "Frekuensi", "Most Sentiment", "Avg Sentiment Score"]
             ].copy()

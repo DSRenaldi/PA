@@ -205,8 +205,8 @@ def _processing_popup() -> None:
 
 def show():
     st.title("Input Data")
-    st.caption(
-        "Populate your dashboard with new insights. Upload CSV untuk menyimpan hasil ke database, "
+    st.markdown(
+        "###### Populate your dashboard with new insights. Upload CSV untuk menyimpan hasil ke database, "
         "atau uji satu komentar secara manual tanpa menyimpan data."
     )
 
@@ -227,7 +227,7 @@ def show():
         )
 
         st.subheader("Data Requirements")
-        st.write("CSV wajib memiliki kolom berikut:")
+        st.markdown("###### CSV wajib memiliki kolom berikut:")
         st.dataframe(pd.DataFrame({"": INPUT_COLUMNS}), hide_index=True, width="stretch")
 
         if "csv_process_message" in st.session_state:

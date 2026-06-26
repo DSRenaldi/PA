@@ -4,6 +4,7 @@ import json
 import math
 import re
 import sqlite3
+import string
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime
@@ -30,6 +31,7 @@ DB_PATH = DASHBOARD_DIR / "Database" / "ABSA_insight.db"
 DICTIONARY_DIR = MODEL_DIR / "Dictionary"
 KAMUS_DIR = MODEL_DIR / "Kamus"
 LOCAL_TRAIN_PATH = MODEL_DIR / "Dataset" / "segmented_dataset.csv"
+ASPECT_TRAIN_PATH = CODE_DIR / "Output_V3" / "train_data_for_ab.csv"
 FALLBACK_TRAIN_PATH = CODE_DIR / "Output_V3" / "train_data.csv"
 
 INPUT_COLUMNS = ["postUrl", "comment_text", "ownerUsername", "date", "month"]
@@ -96,21 +98,35 @@ def _load_emoji_pattern(path: Path) -> re.Pattern | None:
     except Exception:
         return None
 
-    emoji_values: list[str] = []
-    for column in emoji_df.columns:
-        emoji_values.extend(
-            str(value)
-            for value in emoji_df[column].dropna().tolist()
+    if "name" in emoji_df.columns:
+        emoji_values = [
+            re.escape(str(value).strip())
+            for value in emoji_df["name"].dropna().tolist()
             if str(value).strip()
-        )
+        ]
+        if not emoji_values:
+            return None
+        return re.compile(r":(" + "|".join(emoji_values) + r"):", flags=re.IGNORECASE)
 
+    emoji_values: list[str] = [
+        str(value).strip()
+        for value in emoji_df.stack().dropna().tolist()
+        if str(value).strip()
+    ]
     if not emoji_values:
         return None
     return re.compile("|".join(re.escape(value) for value in emoji_values))
 
 
 def _tokenize(text: str) -> list[str]:
-    return re.findall(r"[a-zA-Z]+|[.,!?]", str(text).lower())
+    text = re.sub(r"([.,!?])", r" \1 ", str(text).lower())
+    text = re.sub(r"\s+", " ", text).strip()
+    try:
+        from nltk.tokenize import word_tokenize
+
+        return word_tokenize(text)
+    except Exception:
+        return re.findall(r"[a-zA-Z]+|[.,!?]", text)
 
 
 def _ngrams(tokens: list[str], min_n: int = 1, max_n: int = 3) -> Iterable[str]:
@@ -156,13 +172,26 @@ class AspectClassifier:
         self.vectorizer = None
         self.train_matrix = None
         self.train_labels: list[str] = []
+        self.text_column = ""
+        self.uses_stemmed_text = False
         self.fit()
 
     @staticmethod
     def _resolve_training_path() -> Path:
-        if LOCAL_TRAIN_PATH.exists():
-            return LOCAL_TRAIN_PATH
-        return FALLBACK_TRAIN_PATH
+        for path in (ASPECT_TRAIN_PATH, FALLBACK_TRAIN_PATH, LOCAL_TRAIN_PATH):
+            if not path.exists():
+                continue
+            try:
+                columns = pd.read_csv(path, nrows=0).columns
+            except Exception:
+                continue
+            if "stemmed_segmented_text" in columns:
+                return path
+        if ASPECT_TRAIN_PATH.exists():
+            return ASPECT_TRAIN_PATH
+        if FALLBACK_TRAIN_PATH.exists():
+            return FALLBACK_TRAIN_PATH
+        return LOCAL_TRAIN_PATH
 
     def fit(self) -> None:
         if not self.training_path.exists():
@@ -173,6 +202,8 @@ class AspectClassifier:
             train_df,
             ["stemmed_segmented_text", "segmented_text", "comment_text"],
         )
+        self.text_column = text_column
+        self.uses_stemmed_text = text_column == "stemmed_segmented_text"
         label_column = self._pick_column(train_df, ["true_aspect", "predicted_aspect"])
 
         records = (
@@ -286,7 +317,23 @@ class UserInputModel:
     def __init__(self):
         self.stop_words = _load_text_set(DICTIONARY_DIR / "combined_stop_words.txt")
         self.slang_words = _load_slang_words(DICTIONARY_DIR / "update_combined_slang_words.json")
-        self.conjunction_words = _load_text_set(DICTIONARY_DIR / "augmentation_text_dict.txt")
+        self.protected_stem_words = {
+            part
+            for value in self.slang_words.values()
+            for part in _tokenize(value)
+        }
+        self.conjunction_words = sorted(
+            _load_text_set(DICTIONARY_DIR / "augmentation_text_dict.txt"),
+            key=len,
+            reverse=True,
+        )
+        self.conjunction_pattern = (
+            r"\b(?:"
+            + "|".join(re.escape(word) for word in self.conjunction_words)
+            + r")\b"
+            if self.conjunction_words
+            else ""
+        )
         self.emoji_pattern = _load_emoji_pattern(DICTIONARY_DIR / "emoji_underscore.csv")
         self.stemmer = _get_stemmer()
 
@@ -295,46 +342,101 @@ class UserInputModel:
         self.aspect_classifier = AspectClassifier()
 
     def clean_text(self, text: str) -> str:
+        if pd.isna(text):
+            return ""
+
         cleaned = str(text).lower()
         if self.emoji_pattern is not None:
-            cleaned = self.emoji_pattern.sub(" ", cleaned)
-        cleaned = re.sub(r"https?://\S+|www\.\S+", " ", cleaned)
-        cleaned = re.sub(r"[@#]\w+", " ", cleaned)
-        cleaned = cleaned.replace("-", " ")
-        cleaned = re.sub(r"\d+", " ", cleaned)
+            cleaned = self.emoji_pattern.sub("", cleaned)
+        cleaned = re.sub(r"http\S+|www.\S+", "", cleaned)
+        cleaned = re.sub("-", " ", cleaned)
+        cleaned = re.sub(r"@\w+|#\w+", "", cleaned)
+        cleaned = re.sub(r"\d+", "", cleaned)
         cleaned = re.sub(r"[^a-zA-Z\s.,?!]", " ", cleaned)
-        cleaned = re.sub(r"([.,?!])\1+", r"\1", cleaned)
-        cleaned = re.sub(r"([.,?!])", r" \1 ", cleaned)
+        cleaned = re.sub(r"\.{2,}", " . ", cleaned)
+        cleaned = re.sub(r"\,{2,}", " , ", cleaned)
+        cleaned = re.sub(r"\!{2,}", " ! ", cleaned)
+        cleaned = re.sub(r"\?{2,}", " ? ", cleaned)
         cleaned = re.sub(r"\s+", " ", cleaned).strip()
+        cleaned = re.sub(r"([.,!?])", r" \1 ", cleaned)
+        cleaned = re.sub(r"[`~@#$%^&*()_+={}\[\]\\\/<>\":;]", " ", cleaned)
         return cleaned
 
     def formalize_text(self, text: str) -> str:
+        if pd.isna(text) or not isinstance(text, str):
+            return ""
+
         tokens = _tokenize(text)
         normalized_tokens: list[str] = []
         punctuation = {".", ",", "!", "?"}
 
         for token in tokens:
             token = self.slang_words.get(token, token)
-            if token in punctuation or token not in self.stop_words:
+            if (
+                token not in self.stop_words
+                and (token not in string.punctuation or token in punctuation)
+                and token.strip()
+            ):
                 normalized_tokens.append(token)
 
         return " ".join(normalized_tokens).strip()
 
     def split_text_to_segments(self, text: str) -> list[str]:
+        if pd.isna(text) or not isinstance(text, str):
+            return []
+        text = text.strip()
         if not text:
             return []
-        if not self.conjunction_words:
+        if not self.conjunction_pattern:
             return [text]
 
-        pattern = r"\b(?:" + "|".join(re.escape(word) for word in self.conjunction_words) + r")\b"
-        parts = re.split(pattern, text, flags=re.IGNORECASE)
-        segments = [re.sub(r"\s+", " ", part).strip(" ,") for part in parts]
-        return [segment for segment in segments if len(segment.split()) > 1]
+        matches = list(re.finditer(self.conjunction_pattern, text.lower()))
+        if not matches:
+            return [text]
+
+        segments: list[str] = []
+        start_idx = 0
+        for match in matches:
+            segment = text[start_idx:match.start()].strip()
+            if segment:
+                segments.append(segment)
+            start_idx = match.start()
+
+        last_segment = text[start_idx:].strip()
+        if last_segment:
+            segments.append(last_segment)
+        return segments
 
     def stem_text(self, text: str) -> str:
         if self.stemmer is None:
             return text
-        return self.stemmer.stem(text)
+
+        stemmed_tokens: list[str] = []
+        punctuation = {".", ",", "!", "?"}
+
+        for token in _tokenize(text):
+            if token in punctuation:
+                stemmed_tokens.append(token)
+                continue
+
+            normalized_token = self.slang_words.get(token, token)
+            normalized_parts = _tokenize(normalized_token)
+
+            for part in normalized_parts:
+                if part in punctuation:
+                    stemmed_tokens.append(part)
+                    continue
+
+                if normalized_token != token or part in self.protected_stem_words:
+                    stemmed_tokens.append(part)
+                    continue
+
+                stemmed_part = self.stemmer.stem(part)
+                if len(stemmed_part) <= 2 and len(part) > 3:
+                    stemmed_part = part
+                stemmed_tokens.append(stemmed_part)
+
+        return " ".join(stemmed_tokens)
 
     def predict_sentiment(self, text: str) -> str:
         try:
@@ -365,19 +467,27 @@ class UserInputModel:
 
         for source in input_df.to_dict("records"):
             cleaned_text = self.clean_text(source["comment_text"])
+            if not cleaned_text.strip():
+                continue
+
             normalized_text = self.formalize_text(cleaned_text)
             segments = self.split_text_to_segments(normalized_text)
+            if not segments:
+                continue
 
-            if not segments and len(normalized_text.split()) > 1:
-                segments = [normalized_text]
+            comment_sentiment = self.predict_sentiment(segments[0])
 
             for segment in segments:
-                stemmed_segment = self.stem_text(segment)
+                aspect_input = (
+                    self.stem_text(segment)
+                    if self.aspect_classifier.uses_stemmed_text
+                    else segment
+                )
                 model_output = {
                     "comment_id": source["comment_id"],
                     "segmented_text": segment,
-                    "predicted_aspect": self.aspect_classifier.predict(stemmed_segment),
-                    "final_sentiment_label": self.predict_sentiment(segment),
+                    "predicted_aspect": self.aspect_classifier.predict(aspect_input),
+                    "final_sentiment_label": comment_sentiment,
                 }
 
                 if include_source_columns:
